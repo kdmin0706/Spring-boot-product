@@ -24,14 +24,12 @@ public class ProductServiceImpl implements ProductService {
     public ProductResponseDto getProduct(Long number) {
         Product product = productDao.selectProduct(number);
 
-        ProductResponseDto productResponseDto = ProductResponseDto.builder()
+        return ProductResponseDto.builder()
                 .number(product.getNumber())
                 .name(product.getName())
                 .price(product.getPrice())
                 .stock(product.getStock())
                 .build();
-
-        return productResponseDto;
     }
 
     @Override
@@ -46,28 +44,24 @@ public class ProductServiceImpl implements ProductService {
 
         Product savedProduct = this.productDao.insertProduct(product);
 
-        ProductResponseDto productResponseDto = ProductResponseDto.builder()
+        return ProductResponseDto.builder()
                 .number(savedProduct.getNumber())
                 .name(savedProduct.getName())
                 .price(savedProduct.getPrice())
                 .stock(savedProduct.getStock())
                 .build();
-
-        return productResponseDto;
     }
 
     @Override
     public ProductResponseDto changeProductName(Long number, String name) throws Exception {
         Product changedProduct = this.productDao.updateProductName(number, name);
 
-        ProductResponseDto productResponseDto = ProductResponseDto.builder()
+        return ProductResponseDto.builder()
                 .number(changedProduct.getNumber())
                 .name(changedProduct.getName())
                 .price(changedProduct.getPrice())
                 .stock(changedProduct.getStock())
                 .build();
-
-        return productResponseDto;
     }
 
     @Override

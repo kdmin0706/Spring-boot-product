@@ -21,14 +21,12 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public Product insertProduct(Product product) {
-        Product savedProduct = this.productRepository.save(product);
-        return savedProduct;
+        return this.productRepository.save(product);
     }
 
     @Override
     public Product selectProduct(Long number) {
-        Product selectedProduct = this.productRepository.getById(number);
-        return selectedProduct;
+        return this.productRepository.getById(number);
     }
 
     @Override
